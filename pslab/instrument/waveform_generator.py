@@ -309,7 +309,10 @@ class WaveformGenerator:
             raise ValueError("Waveform table must contain exactly 512 values.")
         if points.dtype.kind not in "iufOUS" or (
             points.dtype.kind == "O"
-            and any(isinstance(value, (bool, np.bool_)) for value in points)
+            and any(
+                isinstance(value, (bool, np.bool_)) or np.iscomplexobj(value)
+                for value in points
+            )
         ):
             raise ValueError("Waveform voltages must be finite real values.")
         if points.dtype.kind in "OUS":

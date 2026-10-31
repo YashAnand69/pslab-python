@@ -24,6 +24,8 @@ from pslab.instrument.waveform_generator import WaveformGenerator
         np.full(512, np.inf),
         np.full(512, -np.inf),
         np.full(512, 1j),
+        np.array([np.complex128(1 + 2j)] + [0.5] * 511, dtype=object),
+        np.array([np.array(1 + 2j)] + [0.5] * 511, dtype=object),
         np.full(512, "not-a-voltage"),
         np.full(512, None, dtype=object),
         np.full(512, {}, dtype=object),
